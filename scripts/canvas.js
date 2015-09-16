@@ -1,6 +1,5 @@
 var Canvas = function(id, parent, width, height){
-	this.lines = [];
-	this.arcs = [];
+	this.drawings = [];
     this.id = id;
     this.parent = parent;
     this.width = width;
@@ -11,33 +10,35 @@ var Canvas = function(id, parent, width, height){
 
 };
 
+/*
+ * Replace the parent container content with a new canvas
+ */
 Canvas.prototype.CreateHtml = function(){
     this.parent.innerHTML += "<canvas id='" + this.id + "' width='" + this.width + "' height='" + this.height + "'></canvas>";
 };
 
-Canvas.prototype.DrawArc = function(x,y,r){
-    ctx.beginPath();
-    ctx.arc(x, y, r, 0, Math.PI*2, true);
-    ctx.fill();
-};
-
+/*
+ * Clear the canvas from all drawings
+ */
 Canvas.prototype.Clear = function(){
     this.context.clearRect(0, 0, this.width, this.height);
 };
 
+/*
+ * Update the canvas and draw the drawings
+ */
 Canvas.prototype.Update = function(){
     if(!this.animating)
         clearInterval(this.animInterval);
     this.Clear();
-    for(var i =0; i < this.lines.length; i++){
-        this.lines[i].Rotate();
-    }
-    for(var i = 0; i < this.arcs.length; i++){
-        this.arcs[i].ChangeRadius();
-        this.arcs[i].Draw();
+    for(var i =0; i < this.drawings.length; i++){
+        this.drawings[i].Rotate();
     }
 };
 
+/*
+ * Recursively update the canvas until stopped
+ */
 Canvas.prototype.StartAnimation = function(){
 	this.animating = true;
 	var t = this;
@@ -46,6 +47,9 @@ Canvas.prototype.StartAnimation = function(){
 	},10);
 };
 
+/*
+ * Stop the recursive updating of the canvas
+ */
 Canvas.prototype.StopAnimation = function(){
 	this.animating = false;
 };

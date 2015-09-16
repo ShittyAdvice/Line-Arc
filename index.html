@@ -7,15 +7,20 @@
     <script src="scripts/canvas.js"></script>
     <script src="scripts/line.js"></script>
     <script src="scripts/arc.js"></script>
+	
+	<div id="canvasWrapper"></div>
 
     <script>
-        var canvas = new Canvas("newCanvas", 1500, 700);
+		var parent = document.getElementById("canvasWrapper");
+        var canvas = new Canvas("newCanvas", parent, 100, 100);
 
-        var line = new Line(canvas, 200, 100, 100, 0);
-        var line2 = new Line(canvas, 200, 100, 100, 30);
-        var arc = new Arc(canvas, line, line2);
+        var line = new Line(canvas, 50, 50, 100, 0);
+        var line2 = Line.Copy(line);
+		line2.angle += 30;
+		line2.Attach(line);
+		
+        var arc = new Arc(line, line2);
         canvas.StartAnimation();
     </script>
-
     </body>
 </html>
