@@ -21,6 +21,9 @@
     <section class="main-content">
       <p>
     </p>
+    <div id="canvasWrapper">
+      
+    </div>
         Math
     
     
@@ -49,7 +52,17 @@
       </footer>
 
     </section>
-
-  
+    <script src="https://github.com/ShittyAdvice/Line-Arc/raw/master/scripts/math.js"></script>
+    <script src="https://github.com/ShittyAdvice/Line-Arc/raw/master/scripts/canvas.js"></script>
+    <script src="https://github.com/ShittyAdvice/Line-Arc/raw/master/scripts/line.js"></script>
+    <script src="https://github.com/ShittyAdvice/Line-Arc/raw/master/scripts/arc.js"></script>
+   <script>
+        var parent = document.getElementById("canvasWrapper");
+        var canvas = new Canvas("newCanvas", parent , 1500, 700);
+        var line = new Line(canvas, 200, 100, 100, 0);
+        var line2 = new Line(canvas, 200, 100, 100, 30);
+        var arc = new Arc(canvas, line, line2);
+        canvas.StartAnimation();
+    </script>
   </body>
 </html>
