@@ -1,7 +1,8 @@
-var Canvas = function(id, width, height){
+var Canvas = function(id, parent, width, height){
 	this.lines = [];
 	this.arcs = [];
     this.id = id;
+    this.parent = parent;
     this.width = width;
     this.height = height;
 	this.animating = false;
@@ -11,7 +12,7 @@ var Canvas = function(id, width, height){
 };
 
 Canvas.prototype.CreateHtml = function(){
-    document.getElementsByTagName("body")[0].innerHTML += "<canvas id='" + this.id + "' width='" + this.width + "' height='" + this.height + "'></canvas>";
+    parent.innerHTML += "<canvas id='" + this.id + "' width='" + this.width + "' height='" + this.height + "'></canvas>";
 };
 
 Canvas.prototype.DrawArc = function(x,y,r){
