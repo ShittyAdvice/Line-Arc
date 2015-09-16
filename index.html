@@ -16,6 +16,10 @@
       <a href="https://github.com/ShittyAdvice/Line-Arc" class="btn">View on GitHub</a>
       <a href="https://github.com/ShittyAdvice/Line-Arc/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/ShittyAdvice/Line-Arc/tarball/master" class="btn">Download .tar.gz</a>
+      <script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/math.js"></script>
+      <script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/canvas.js"></script>
+      <script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/line.js"></script>
+      <script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/arc.js"></script>
     </section>
 
     <section class="main-content">
@@ -63,6 +67,13 @@ arc.Draw();
 
     </section>
 
-  
+  <script>
+    var parent = document.getElementById("canvasWrapper")
+    var canvas = new Canvas("newCanvas", 200, 200);
+    var line = new Line(canvas, 100, 100, 100, 0);
+    var line2 = new Line(canvas, 100, 100, 100, 30);
+    var arc = new Arc(canvas, line, line2);
+    canvas.StartAnimation();
+  </script>
   </body>
 </html>
