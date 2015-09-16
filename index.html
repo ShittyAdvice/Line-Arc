@@ -20,9 +20,40 @@
 
     <section class="main-content">
       <h2>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+<a id="preview" class="anchor" href="#preview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preview</h2>
 
 <div id="canvasWrapper"></div>
+
+<h2>
+<a id="canvas-usage" class="anchor" href="#canvas-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Canvas Usage</h2>
+
+<pre><code>var parentDom = document.getElementById("parentID");
+var height = 200;
+var width = 200;
+var canvas = new Canvas("canvasID", parentDom, height, width);
+</code></pre>
+
+<h2>
+<a id="line-usage" class="anchor" href="#line-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Line Usage</h2>
+
+<pre><code>var xPos = 100;
+var yPos = 100;
+var length = 100;
+var angle = 0;//In degrees
+var line = new Line(canvas, xPos, yPos, length, angle);
+line.Draw();
+line.Rotate(); //Automaticly redraws
+</code></pre>
+
+<h2>
+<a id="arc-usage" class="anchor" href="#arc-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arc usage</h2>
+
+<pre><code>var line1 = new Line(canvas, xPos, yPos, length, angle);
+var line2 = new Line(canvas, xPos, yPos, length, angle + 50);
+
+var arc = new Arc(canvas, line1, line2);
+arc.Draw();
+</code></pre>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/ShittyAdvice/Line-Arc">Line-arc</a> is maintained by <a href="https://github.com/ShittyAdvice">ShittyAdvice</a>.</span>
