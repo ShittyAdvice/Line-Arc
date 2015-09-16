@@ -21,6 +21,7 @@
     <section class="main-content">
       <p>
     </p>
+        Example
     <div id="canvasWrapper">
       
     </div>
@@ -33,7 +34,7 @@
     
 
 <pre><code>&lt;script&gt;
-    var canvas = new Canvas("newCanvas", 1500, 700);
+    var canvas = new Canvas("canvasID", "ParentDom", 1500, 700);
     var line = new Line(canvas, 200, 100, 100, 0);
     var line2 = new Line(canvas, 200, 100, 100, 30);
     var arc = new Arc(canvas, line, line2);
@@ -58,9 +59,9 @@
     <script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/arc.js"></script>
    <script>
         var parent = document.getElementById("canvasWrapper");
-        var canvas = new Canvas("newCanvas", parent , 1500, 700);
-        var line = new Line(canvas, 200, 100, 100, 0);
-        var line2 = new Line(canvas, 200, 100, 100, 30);
+        var canvas = new Canvas("newCanvas", parent , 500, 200);
+        var line = new Line(canvas, 100, 100, 100, 0);
+        var line2 = new Line(canvas, 100, 100, 100, 30);
         var arc = new Arc(canvas, line, line2);
         canvas.StartAnimation();
     </script>
