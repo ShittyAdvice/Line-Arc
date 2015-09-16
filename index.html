@@ -31,6 +31,8 @@
 var height = 200;
 var width = 200;
 var canvas = new Canvas("canvasID", parentDom, height, width);
+
+canvas.StartAnimation(); //Starts rotating the drawings
 </code></pre>
 
 <h2>
@@ -45,13 +47,28 @@ line.Draw();
 line.Rotate(); //Automaticly redraws
 </code></pre>
 
+<h3>
+<a id="line-copying--attaching" class="anchor" href="#line-copying--attaching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Line Copying &amp; Attaching</h3>
+
+<p>Copying a line will create a new line with the same attributes.
+Attaching a line to another line will make sure they're positions always stay the same.</p>
+
+<pre><code>var firstLine = new Line(canvas, 50, 50, 100, 0);
+var secondLine = Line.Copy(firstLine);
+secondLine.angle += 30;
+secondLine.Attach(firstLine);
+</code></pre>
+
 <h2>
 <a id="arc-usage" class="anchor" href="#arc-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arc usage</h2>
 
-<pre><code>var line1 = new Line(canvas, xPos, yPos, length, angle);
-var line2 = new Line(canvas, xPos, yPos, length, angle + 50);
+<p>An arc will be created between the first and second line.</p>
 
-var arc = new Arc(canvas, line1, line2);
+<pre><code>var firstLine = new Line(canvas, xPos, yPos, length, angle);
+var secondLine = Line.Copy(firstLine);
+secondLine.angle += 50;
+
+var arc = new Arc(line1, line2);
 arc.Draw();
 </code></pre>
 
@@ -63,10 +80,6 @@ arc.Draw();
 
     </section>
 
-	<script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/math.js"></script>
-	<script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/canvas.js"></script>
-	<script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/line.js"></script>
-	<script src="https://rawgit.com/ShittyAdvice/Line-Arc/master/scripts/arc.js"></script>
-	<script src="script.js"></script>
+  
   </body>
 </html>
