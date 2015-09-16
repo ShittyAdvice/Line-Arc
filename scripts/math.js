@@ -8,11 +8,11 @@
 var MyMath = {};
 
 MyMath.CircleRingX = function(x,r,a){
-    return x + r * Math.cos(DegreeToRadian(a));
+    return x + r * Math.cos(this.DegreeToRadian(a));
 };
 
 MyMath.CircleRingY = function(y,r,a){
-    return y + r * Math.sin(DegreeToRadian(a));
+    return y + r * Math.sin(this.DegreeToRadian(a));
 };
 
 MyMath.DegreeToRadian = function(degrees){

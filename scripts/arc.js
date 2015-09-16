@@ -14,7 +14,7 @@ var Arc = function(canvas, line, line2){
 
 Arc.prototype.Draw = function(){
     this.canvas.context.beginPath();
-    this.canvas.context.arc(this.line.x, this.line.y, this.radius, DegreeToRadian(this.line.angle), DegreeToRadian(this.line2.angle), false);
+    this.canvas.context.arc(this.line.x, this.line.y, this.radius, MyMath.DegreeToRadian(this.line.angle), MyMath.DegreeToRadian(this.line2.angle), false);
     this.canvas.context.stroke();
 };
 
@@ -22,34 +22,3 @@ Arc.prototype.ChangeRadius = function(){
     if(this.radius >= this.line.length / 2 || this.radius <= 0) this.direction = !this.direction;
     this.radius += (this.direction ? 1 : -1);
 };
-
-/*
- * Calculate width
- *
- * Formula = 2d*tan(a/2);
- * d = DISTANCE from start
- * a = ANGLE
- */
-
-/*
- * x + r * Math.cos(h);
- * x = X Positie middelpunt
- * y = Y Positie middelpunt
- * s = Radius
- * h = Hoek in Radians
- */
-function CircleEdgePosX(x,r,a){
-    return x + r * Math.cos(DegreeToRadian(a));
-}
-
-function CircleEdgePosY(y,r,a){
-    return y + r * Math.sin(DegreeToRadian(a));
-}
-
-function DegreeToRadian(degrees){
-    return degrees * (Math.PI / 180);
-}
-
-function RadianToDegree(radian){
-    return radian * (180 / Math.PI);
-}
