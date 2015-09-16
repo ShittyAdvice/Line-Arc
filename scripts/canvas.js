@@ -12,7 +12,7 @@ var Canvas = function(id, parent, width, height){
 };
 
 Canvas.prototype.CreateHtml = function(){
-    parent.innerHTML += "<canvas id='" + this.id + "' width='" + this.width + "' height='" + this.height + "'></canvas>";
+    this.parent.innerHTML += "<canvas id='" + this.id + "' width='" + this.width + "' height='" + this.height + "'></canvas>";
 };
 
 Canvas.prototype.DrawArc = function(x,y,r){
